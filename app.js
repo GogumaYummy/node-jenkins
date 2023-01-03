@@ -7,5 +7,5 @@ app
     res.send('hi');
   })
   .listen(3000, () => {
-    console.log('3000번 포트에서 응답 중입니다?');
+    console.log('Listening on port 3000.');
   });
