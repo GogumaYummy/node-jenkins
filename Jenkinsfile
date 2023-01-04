@@ -20,7 +20,7 @@ pipeline {
         stage('Push') {
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-                    sh "docker login --password=${PASSWORD} --username=${USERNAME} ${DOCKER_REGISTRY_URI}"
+                    sh '''echo "${PASSWORD} | docker login -u${USERNAME} --password=stdin" '''
                     sh "docker push -a ${USERNAME}/${IMAGE_NAME}"
                 }
             }
