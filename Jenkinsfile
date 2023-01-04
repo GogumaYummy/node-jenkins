@@ -3,6 +3,6 @@ node {
         checkout scm
     }
     stage('Build') {
-        image = docker.build('my-app:$BUILD_NUMBER')
+        image = docker.build('my-app:${BUILD_NUMBER}')
     }
 }
