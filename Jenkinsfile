@@ -8,5 +8,10 @@ pipeline {
                 sh 'docker build -t my-app .'
             }
         }
+        stage('Test') {
+            steps {
+                sh 'docker run -d my-app:latest'
+            }
+        }
     }
 }
