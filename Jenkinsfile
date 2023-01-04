@@ -6,7 +6,7 @@ node {
         checkout scm
     }
     stage('Build') {
-        image = docker.build("my-app")
+        image = docker.build("gogumayummy/my-app")
     }
     stage('Push') {
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
