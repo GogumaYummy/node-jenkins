@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 checkout scm
-                sudo docker built -t my-app .
+                sh 'sudo docker built -t my-app .'
             }
         }
     }
