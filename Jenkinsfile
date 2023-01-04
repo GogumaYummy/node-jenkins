@@ -12,7 +12,9 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh "docker build -t ${IMAGE_NAME}:latest -t ${IMAGE_NAME}:${IMAGE_NAME} ."
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+                    sh "docker build -t ${USERNAME}/${IMAGE_NAME}:latest -t ${USERNAME}/${IMAGE_NAME}:${IMAGE_NAME} ."
+                }
             }
         }
         stage('Push') {
