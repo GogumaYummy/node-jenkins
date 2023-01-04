@@ -3,6 +3,9 @@ node {
         checkout scm
     }
     stage('Build') {
-        image = docker.build("my-app:${env.BUILD_ID}")
+        def image = docker.build("my-app:${env.BUILD_ID}")
+    }
+    stage('Push') {
+        image.push('latest')
     }
 }
