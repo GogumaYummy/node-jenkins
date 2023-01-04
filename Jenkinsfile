@@ -1,6 +1,6 @@
 node {
     def image;
-    def DOCKER_REGISTRY_URI = 'https://registry.hub.docker.com'
+    def DOCKER_REGISTRY_URI = 'registry.hub.docker.com'
 
     stage('Checkout') {
         checkout scm
