@@ -3,10 +3,9 @@ pipeline {
 
     stages {
         stage('Build') {
-            node {
+            steps {
                 checkout scm
-                
-                def customImage = docker.build("my-image:${env.BUILD_ID}")
+                sudo docker built -t my-app .
             }
         }
     }
