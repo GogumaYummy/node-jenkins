@@ -9,7 +9,7 @@ node {
         image = docker.build("my-app")
     }
     stage('Push') {
-        withDockerRegistry([ credentialsId: "DockerHub", url: "registry.hub.docker.com" ]) {
+        withDockerRegistry([ credentialsId: "DockerHub", url: "https://registry.hub.docker.com" ]) {
             image.push('latest')
         }
         // withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
