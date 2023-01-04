@@ -2,15 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                checkout scm
-                sh 'docker build -t my-app .'
+              checkout scm
             }
         }
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh 'docker run -d my-app:latest'
+                image = docker.build('my-app:$BUILD_NUMBER')
             }
         }
     }
