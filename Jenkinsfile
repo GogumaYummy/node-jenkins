@@ -1,11 +1,12 @@
 pipeline {
     agent any
-    
-    def image;
-    def DOCKER_REGISTRY_URI = 'https://registry.hub.docker.com'
-    def IMAGE_NAME = 'my-app'
 
     stages {
+      
+        def image;
+        def DOCKER_REGISTRY_URI = 'https://registry.hub.docker.com'
+        def IMAGE_NAME = 'my-app'
+
         stage('Checkout') {
             steps {
                 checkout scm
