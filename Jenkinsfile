@@ -8,7 +8,7 @@ node {
         image = docker.build("my-app")
     }
     stage('Push') {
-        docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
+        docker.withServer('https://registry.hub.docker.com', 'DockerHub') {
             image.push("${env.BUILD_ID}")
         }
     }
