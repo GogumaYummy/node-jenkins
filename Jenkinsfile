@@ -5,9 +5,12 @@ node {
         checkout scm
     }
     stage('Build') {
-        image = docker.build("my-app:${env.BUILD_ID}")
+        image = docker.build("my-app")
     }
     stage('Push') {
-        image.push('latest')
+        docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
+            image.push("${env.BUILD_ID}")
+            image.push('latest')
+        }
     }
 }
