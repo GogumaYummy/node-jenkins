@@ -10,7 +10,6 @@ node {
     stage('Push') {
         docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
             image.push("${env.BUILD_ID}")
-            image.push('latest')
         }
     }
 }
