@@ -3,14 +3,10 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            steps {
-              checkout scm
-            }
+            checkout scm
         }
         stage('Build') {
-            steps {
-                image = docker.build('my-app:$BUILD_NUMBER')
-            }
+            image = docker.build('my-app:$BUILD_NUMBER')
         }
     }
 }
