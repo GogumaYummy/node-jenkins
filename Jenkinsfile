@@ -2,16 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
+        stage('Build') {
+            node {
                 checkout scm
                 
-                sudo docker built -t my-app .
-            }
-        }
-        stage('Build') {
-            steps {
-                echo 'okay'
+                def customImage = docker.build("my-image:${env.BUILD_ID}")
             }
         }
     }
