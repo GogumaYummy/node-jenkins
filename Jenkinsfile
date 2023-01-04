@@ -1,7 +1,6 @@
 pipeline {
     agent any
     environment { 
-        image
         DOCKER_REGISTRY_URI = 'https://registry.hub.docker.com'
         IMAGE_NAME = 'my-app'
     }
