@@ -21,7 +21,8 @@ pipeline {
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
                     sh '''echo "${PASSWORD} | docker login -u${USERNAME} --password=stdin" '''
-                    sh "docker push -a ${USERNAME}/${IMAGE_NAME}"
+                    sh "echo ${USERNAME}/${IMAGE_NAME}"
+                    sh "docker push ${USERNAME}/${IMAGE_NAME}"
                 }
             }
         }
