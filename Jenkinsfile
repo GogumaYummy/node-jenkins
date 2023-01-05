@@ -9,7 +9,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'npm install'
-                sh 'npm test'
+                sh 'npx jest-cli'
             }
         }
         stage('Transpile') {
