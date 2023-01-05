@@ -6,9 +6,14 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Transpile') {
+        stage('Test') {
             steps {
                 sh 'npm install'
+                sh 'npm test'
+            }
+        }
+        stage('Transpile') {
+            steps {
                 sh 'npm run build'
             }
         }
