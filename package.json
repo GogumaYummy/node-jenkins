@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pm2-docker start src/dist.js",
+    "dev": "pm2-docker start dist/app.js",
     "build": "tsc"
   },
   "keywords": [],
