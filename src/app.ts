@@ -1,14 +1,9 @@
-const express = require('express');
-const fs = require('fs');
+import express from 'express';
 
 const app = express();
 
 app
   .get('/', (req, res) => {
-    res.send('bye');
-  })
-  .get('/mkdir', (req, res) => {
-    fs.mkdir('./dd');
     res.send('good');
   })
   .listen(3000, () => {
