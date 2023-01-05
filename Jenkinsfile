@@ -6,6 +6,11 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Transpile') {
+            steps {
+                sh 'npm run build'
+            }
+        }
         stage('Build') {
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'DockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
