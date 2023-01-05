@@ -8,6 +8,7 @@ pipeline {
         }
         stage('Transpile') {
             steps {
+                sh 'npm install'
                 sh 'npm run build'
             }
         }
