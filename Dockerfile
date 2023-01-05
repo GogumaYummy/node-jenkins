@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD [ "pm2-docker", "start", "src/app.js" ]
+CMD [ "npm", "run", "dev" ]
