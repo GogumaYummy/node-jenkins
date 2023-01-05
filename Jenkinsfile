@@ -9,8 +9,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'npm install'
-                sh 'sudo npm install -g jest'
-                sh 'jest'
+                sh 'npm test'
             }
         }
         stage('Transpile') {
